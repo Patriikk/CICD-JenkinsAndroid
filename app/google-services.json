@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "679273433256",
+    "project_id": "ci-cd-jenkins-android-live",
+    "storage_bucket": "ci-cd-jenkins-android-live.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679273433256:android:3aadda1d7102bde027da9d",
+        "android_client_info": {
+          "package_name": "com.patrik.cicd_jenkinsandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv5iV1Whj87RfvEjyx8JggjhS82aV5gVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

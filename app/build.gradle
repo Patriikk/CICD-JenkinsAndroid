@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.appdistribution'
 }
 
 android {
@@ -11,8 +13,8 @@ android {
         applicationId "com.patrik.cicd_jenkinsandroid"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,6 +23,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                artifactType = "APK"
+                groups = "codezee-tester"
+            }
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                artifactType = "APK"
+                groups = "codezee-tester"
+            }
         }
     }
     compileOptions {
@@ -41,10 +57,29 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation platform('com.google.firebase:firebase-bom:32.3.1')
+    implementation 'com.google.firebase:firebase-analytics'
 }
 
-tasks.create("printLog"){
-    doLast {
-        println("Hey There, Developers")
-    }
-}
+//
+//tasks.create("printLog").mustRunAfter(":app:assembleDebug"){
+//    doLast {
+//        println("Hey There, Developers")
+//    }
+//}
+
+//tasks.register('deployDebugToQA') {
+//
+//    doLast {
+//        def fileToCheck = file("${project.projectDir}/build/outputs/apk/debug/app-debug.apk")
+//
+//        if (fileToCheck.exists()) {
+//            println "File exists. Performing your task..."
+//            // Add the code to perform your task here
+//        } else {
+//            println "File does not exist. Skipping your task."
+//        }
+//    }
+//
+//}
