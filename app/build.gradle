@@ -26,6 +26,7 @@ android {
 
             firebaseAppDistribution {
                 artifactType = "APK"
+                serviceCredentialsFile = "${project.projectDir}/serviceaccount.json"
                 groups = "codezee-tester"
             }
         }
@@ -34,6 +35,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             firebaseAppDistribution {
+                serviceCredentialsFile = "${project.projectDir}/serviceaccount.json"
                 artifactType = "APK"
                 groups = "codezee-tester"
             }
