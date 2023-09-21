@@ -44,5 +44,7 @@ dependencies {
 }
 
 tasks.create("printLog"){
-    println("Hey There, Developers")
+    doLast {
+        println("Hey There, Developers")
+    }
 }
